@@ -1,10 +1,6 @@
-import { AccountService } from './../../services/account.service';
+
 import { Component, OnInit, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { CustomValidators } from 'src/app/components/form-field';
-import { StorageService } from 'src/app/services/storage/storage.service';
-import { ToastService } from 'src/app/components/toast-notification/toast.service';
-import { ImageUpdaterService } from 'src/app/services/image-updater/image-updater.service';
 
 @Component({
   selector: 'app-login',
@@ -22,10 +18,6 @@ export class LoginComponent implements OnInit {
   @ViewChild('email', { static: true }) email: ElementRef;
   constructor(
     private _fb: FormBuilder,
-    private _accountService: AccountService,
-    private _storageService: StorageService,
-    private toastService: ToastService,
-    private imageUpdaterService: ImageUpdaterService
   ) {
   }
 
@@ -36,7 +28,7 @@ export class LoginComponent implements OnInit {
 
   createForm() {
     this.loginForm = this._fb.group({
-      email: ['', [Validators.required, ...CustomValidators.email]],
+      email: ['', [Validators.required]],
       password: ['', [Validators.required]],
     });
   }
@@ -46,22 +38,6 @@ export class LoginComponent implements OnInit {
       return;
     }
     this.loginForm.disable();
-    this._accountService.login(this.loginForm.value).subscribe(response => {
-      if (response.statusCode === 200) {
-        const token = response.data.token;
-        this._storageService.loginSuccessfully(token);
-        const data = {
-          image: response.data.image,
-          name: response.data.name
-        };
-        this.imageUpdaterService.setImage(data);
-      } else {
-        this.loginForm.enable();
-        this.toastService.error(response.message);
-      }
-    }, (error) => {
-      this.loginForm.enable();
-      this.toastService.error(error.message);
-    });
+   
   }
 }

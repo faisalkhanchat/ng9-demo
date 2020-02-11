@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'reset'; // 0.7 kb
+@import 'var';
+@import 'ngx-theme'; // 62 kb
+@import 'typography'; // 1kb
+@import 'common'; //0.5 kb
+// @import 'grid'; //8.5 kb
+
+:root {
+    font-size: 16px;
+    @media (max-width:767px) {
+        font-size: 14px;
+    }
+}
+
+
+html, body { height: 100%; }
+
+body { 
+    margin: 0; 
+    font-family: $font, "Helvetica Neue", sans-serif; 
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
+}
+
+/* 
+        ====  WARNING   ===
+    PLEASE DO NOT WRITE CSS HERE 
+
+*/

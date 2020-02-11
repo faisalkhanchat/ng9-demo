@@ -1,4 +1,4 @@
-import { routerAnimation } from 'src/app/components/animations';
+import { routerAnimation } from 'src/app/components/animations/animations';
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
