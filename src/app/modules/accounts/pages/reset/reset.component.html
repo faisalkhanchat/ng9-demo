@@ -1,0 +1,30 @@
+<form [formGroup]="resetForm" (ngSubmit)="onReset()" class="form">
+    <h3>Reset</h3>
+    <p> Enter your new password below to update your credentials. </p>
+
+    <mat-form-field appearance="outline">
+        <mat-label>New Password</mat-label>
+        <input matInput formControlName="password" [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error> {{ resetForm.controls['password'] | formError: 'New Password' }} </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput formControlName="confirmPassword" [type]="hide2 ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide2 = !hide2" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide2">
+            <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error> {{ resetForm.controls['confirmPassword'] | formError: 'Confirm Password' }} </mat-error>
+    </mat-form-field>
+
+
+    <div class="form-btn">
+        <button mat-flat-button color="primary"> Reset </button>
+        <!-- <button mat-stroked-button> Forgot Password </button> -->
+    </div>
+</form>

@@ -1,0 +1,10 @@
+[
+     {
+        "id":"CUS12341243",
+        "username":"John carter",
+        "email":"john@yopmail.com",
+        "phone":"+91 9873635068",
+        "last_order_update" : "Nov 20, 2029",
+        "status": "Accepted"
+    }
+]

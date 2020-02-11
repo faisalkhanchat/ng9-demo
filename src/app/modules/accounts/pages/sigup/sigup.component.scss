@@ -1,0 +1,9 @@
+.country_list{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .name {
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}

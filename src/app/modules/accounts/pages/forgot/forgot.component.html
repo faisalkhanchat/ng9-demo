@@ -1,0 +1,13 @@
+<form [formGroup]="forgotForm" (ngSubmit)="onForgot()" class="form">
+    <h3>Forgot</h3>
+    <p> Enter your email address to reset your password. </p>
+    <mat-form-field appearance="outline">
+        <mat-label>Email Address</mat-label>
+        <input matInput type="email" formControlName="email" />
+        <mat-error> {{ forgotForm.controls['email'] | formError : 'Email' }}</mat-error>
+    </mat-form-field>
+      <div class="form-btn">
+          <button mat-flat-button color="primary" > Submit </button>
+          <button type="button" mat-button [routerLink]="[ '/account/login' ]" > Back to Login </button>
+      </div>
+</form>

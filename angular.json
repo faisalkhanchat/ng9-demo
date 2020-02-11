@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "ngx-demo": {
@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ngx-demo"
+    }
+  },
+  "defaultProject": "ngx-demo",
+  "cli": {
+    "analytics": "bbf74aa2-9a45-4b6e-a688-162b922a9ac7"
+  }
 }

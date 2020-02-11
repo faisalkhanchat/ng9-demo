@@ -1,0 +1,15 @@
+<!-- <button class="mat_close" (click)="closePopup()"></button> -->
+<h1 mat-dialog-title >{{data?.title}}</h1>
+
+<mat-dialog-content>
+
+  <div class="modal_message">
+    <p>{{data?.message}} </p>
+  </div>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-stroked-button color="default" (click)="onNoClick()" > {{data?.btn2 ? data?.btn2:'No'}}  </button>
+  <button mat-raised-button color="primary" (click)="confirm()" > {{data?.btn1 ? data?.btn1:'Yes'}} </button>
+</mat-dialog-actions>

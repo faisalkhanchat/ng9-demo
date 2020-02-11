@@ -1,0 +1,55 @@
+
+.form{
+    padding: 3rem;
+    p{
+        margin-bottom: 3rem;
+    }
+    button{
+        font-weight: 400
+    }
+    mat-form-field{
+        font-size: 1rem;
+    }
+}
+
+.form-btn {
+    margin-top: 20px;
+    button + button {margin-left: 20px;}
+}
+
+
+
+// pratice code 
+
+// h1{
+//     color: blue;  // not working
+// }
+
+// h3{
+//     color: red;  // not working
+// }
+
+// :host {
+//     border: 5px solid red;
+//     h3{
+//         color: red;  // not working
+//     }
+// }
+
+// ::ng-deep {
+//     border: 5px solid red;
+//     h3{
+//         color: red;
+//     }
+//     h1{
+//         color: blue;
+//     }
+// }
+
+// :host ::ng-deep input.mat-input-element {
+//     color: red !important;
+// }
+
+:host-context(mat-form-field) input.mat-input-element {
+    color: red !important;
+}

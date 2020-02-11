@@ -1,0 +1,48 @@
+<form class="form" [formGroup]="signupForm" (ngSubmit)="onSignup()" >
+    <h3>Signup</h3>
+    <p> Create an account to get login access in the admin panel. </p>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" formControlName="name" />
+        <mat-error> {{ signupForm.controls['name'] | formError : 'Name' }} </mat-error>
+    </mat-form-field> 
+    
+    <mat-form-field appearance="outline">
+        <mat-label>Email Address</mat-label>
+        <input #email matInput type="email" formControlName="email" />
+        <mat-error> {{ signupForm.controls['email'] | formError : 'Email' }} </mat-error>
+        <mat-error *ngIf="iserror"> This email already exit in database </mat-error>
+    </mat-form-field>
+  
+    <app-select-country [controls]="signupForm.controls['country_code']" ></app-select-country>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Mobile Number</mat-label>
+        <input matInput type="number" formControlName="phone" />
+        <mat-error> {{ signupForm.controls['phone'] | formError : 'Phone' }} </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label> Select Country </mat-label>
+        <mat-select formControlName="country">
+            <mat-option *ngFor="let country of countries" [value]="country.name">
+                {{country.name}}
+            </mat-option>
+        </mat-select>
+        <mat-error> {{ signupForm.controls['country'] | formError : 'Country' }} </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error> {{ signupForm.controls['password'] | formError : 'Password' }} </mat-error>
+      </mat-form-field>
+      <div class="form-btn">
+          <button mat-flat-button color="primary" > Submit </button>
+          <!-- <button mat-button [routerLink]="[ '/account/forgot' ]" > Forgot Password </button> -->
+      </div>
+</form>
