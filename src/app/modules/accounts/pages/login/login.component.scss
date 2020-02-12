@@ -1,7 +1,11 @@
 
 .form{
     padding: 3rem;
+    h3 {
+        font-size: 2rem;
+    }
     p{
+        font-size: 1rem;
         margin-bottom: 3rem;
     }
     button{
@@ -50,6 +54,11 @@
 //     color: red !important;
 // }
 
-:host-context(mat-form-field) input.mat-input-element {
-    color: red !important;
+:host-context(.content){
+    background-color: red ;
+     h3 {
+         background-color:blue;
+     }
 }
+
+// if parent has those class then the css will applied only on host element from 

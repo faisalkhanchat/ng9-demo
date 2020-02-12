@@ -6,8 +6,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  // encapsulation: ViewEncapsulation.Native, // open the shadow dom in html
-  // encapsulation: ViewEncapsulation.Emulated,  // initial proper of component
+  // encapsulation: ViewEncapsulation.ShadowDom, // open the shadow dom in html
+  encapsulation: ViewEncapsulation.Emulated,  // initial property of component
   // encapsulation: ViewEncapsulation.None,     // apply component css global
 })
 export class LoginComponent implements OnInit {
